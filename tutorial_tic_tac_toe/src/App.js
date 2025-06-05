@@ -33,6 +33,8 @@ export default function Game() {
   return (
     <div className="game">
       <div className="game-board">
+        <h1>Tic Tac Toe</h1>
+        <h3>Current Move: {currentMove}</h3>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
       </div>
       <div className="game-info">
@@ -66,24 +68,21 @@ function Board({ xIsNext, squares, onPlay }) {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
 
+  const rowDivs = [];
+  for (let i=0; i < 3; i++) {
+    const squareComponents = [];
+    for(let j=0; j < 3; j++) {
+      const squareIndex = i * 3 + j;
+      squareComponents.push(<Square value={squares[squareIndex]} onSquareClick={() => handleClick(squareIndex)}/>);
+    }
+    const rowDiv = <div className="board-row">{squareComponents}</div>;
+    rowDivs.push(rowDiv);
+  }
+
   return (
   <>
     <div className="status">{status}</div>
-    <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)}/>
-    </div>
-    <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)}/>
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)}/>
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)}/>
-    </div>
-    <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)}/>
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)}/>
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)}/>
-    </div>
+    {rowDivs}
   </> );
 }
 

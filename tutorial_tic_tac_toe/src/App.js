@@ -35,7 +35,7 @@ export default function Game() {
       <div className="game-board">
         <h1>Tic Tac Toe</h1>
         <h3>Current Move: {currentMove}</h3>
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} currentMove={currentMove}/>
       </div>
       <div className="game-info">
         <ol>
@@ -48,7 +48,7 @@ export default function Game() {
   );
 }
 
-function Board({ xIsNext, squares, onPlay }) {
+function Board({ xIsNext, squares, onPlay, currentMove }) {
   function handleClick(i) {
     if (squares[i] !== null || calculateWinner(squares)) {
       return;
@@ -64,7 +64,11 @@ function Board({ xIsNext, squares, onPlay }) {
   let status;
   if (winner) {
     status = "Winner: " + winner;
-  } else {
+  }
+  else if (currentMove ===9){
+    status = "It's a draw!";
+  }
+  else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
 

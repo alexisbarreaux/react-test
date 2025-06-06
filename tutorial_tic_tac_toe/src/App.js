@@ -91,7 +91,11 @@ function Board({ xIsNext, squares, onPlay, currentMove }) {
 }
 
 function Square({value, onSquareClick, isWinningIndex}) {
-  return <button className={"square" + (isWinningIndex ? " winner" : "") } onClick={onSquareClick}>{value}</button>;
+  const baseClassName = "square";
+  const valueClassName = value === "X" ? "square-x" : (value === "O" ? "square-o" : "");
+  const winningClassName = isWinningIndex ? "winner" : "";
+  const className= [baseClassName, valueClassName, winningClassName].join(" ");
+  return <button className={className} onClick={onSquareClick}>{value}</button>;
 }
 
 function calculateWinner(squares) {

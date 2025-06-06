@@ -71,6 +71,13 @@ body {
   width: 34px;
 }
 
+.square-o {
+  color: red;
+}
+.square-x {
+  color: blue;
+}
+
 .winner {
   background: rgb(38, 255, 0);
 }

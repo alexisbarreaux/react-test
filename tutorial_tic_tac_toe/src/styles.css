@@ -57,7 +57,7 @@ body {
 }
 
 .square {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #999;
   float: left;
   font-size: 24px;
@@ -73,16 +73,14 @@ body {
 }
 
 .square-o {
-  color: red;
   background-image: url("./images/toe.png");
 }
 .square-x {
-  color: blue;
   background-image: url("./images/tictac.png");
 }
 
 .winner {
-  background: rgb(38, 255, 0);
+  border: 3px solid greenyellow;
 }
 
 .board-row:after {

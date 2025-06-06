@@ -33,7 +33,7 @@ export default function Game() {
   return (
     <div className="game">
       <div className="game-board">
-        <h1>Tic Tac Toe</h1>
+        <h1>TicTac Toe</h1>
         <h3>Current Move: {currentMove}</h3>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} currentMove={currentMove}/>
       </div>
@@ -97,7 +97,6 @@ function Square({value, onSquareClick, isWinningIndex}) {
   const className= [baseClassName, valueClassName, winningClassName].join(" ");
   return (
   <button className={className} onClick={onSquareClick}>
-    {value}
   </button>);
 }
 

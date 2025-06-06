@@ -69,13 +69,16 @@ body {
   padding: 0;
   text-align: center;
   width: 34px;
+  background-size: cover;
 }
 
 .square-o {
   color: red;
+  background-image: url("./images/toe.png");
 }
 .square-x {
   color: blue;
+  background-image: url("./images/tictac.png");
 }
 
 .winner {

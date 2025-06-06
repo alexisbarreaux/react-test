@@ -95,7 +95,10 @@ function Square({value, onSquareClick, isWinningIndex}) {
   const valueClassName = value === "X" ? "square-x" : (value === "O" ? "square-o" : "");
   const winningClassName = isWinningIndex ? "winner" : "";
   const className= [baseClassName, valueClassName, winningClassName].join(" ");
-  return <button className={className} onClick={onSquareClick}>{value}</button>;
+  return (
+  <button className={className} onClick={onSquareClick}>
+    {value}
+  </button>);
 }
 
 function calculateWinner(squares) {
